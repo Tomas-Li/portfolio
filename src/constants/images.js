@@ -14,7 +14,6 @@ import redux from '../assets/redux.png';
 import sass from '../assets/sass.png';
 import typescript from '../assets/typescript.png';
 
-import profile from '../assets/profile.png';
 import circle from '../assets/circle.svg';
 
 const images = {
@@ -33,7 +32,6 @@ const images = {
   redux,
   sass,
   typescript,
-  profile,
   circle,
 };
 
