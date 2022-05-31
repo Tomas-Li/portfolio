@@ -25,7 +25,10 @@ const Skills = () => {
 
     client.fetch(skillsQuery)
       .then(data => {
-        setSkills(data);
+        const sortData = data.sort(function(a, b) {
+          return a['order'] - b['order'];
+        })
+        setSkills(sortData);
       });
   }, [])
 
@@ -43,7 +46,9 @@ const Skills = () => {
               key={skill.name}
             >
               <div className='app__flex' style={{ backgroundColor: skill.bgColor }}>
-                <img src={urlFor(skill.icon)} alt={skill.name}/>
+              <a href={skill.link} target='_blank' rel='noopener noreferrer'>
+                  <img src={urlFor(skill.icon)} alt={skill.name}/>
+                </a>
               </div>
               <p className='p-text'>{skill.name}</p>
             </motion.div>

@@ -23,7 +23,7 @@ const scaleVariants = {
 }
 
 //images that are being shown in the header
-const technologies = [images.flutter, images.redux, images.sass]
+const technologies = [images.python, images.node, images.cpp]
  
 const Header = () => {
   return (
@@ -38,13 +38,14 @@ const Header = () => {
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
               <p className='p-text'>Hello, I am </p>
-              <h1 className='head-text'>Tomás</h1>
+              <h1 className='head-text'>Tomás Liñan</h1>
             </div>
           </div>
 
           <div className='tag-cmp app__flex'>
-            <p className='p-text'>Web Developer</p>
-            <p className='p-text'>Ingeniero Aeronautico</p>
+            <p className='p-text'>*Aeronautical Engineer</p>
+            <p className='p-text'>*Frontend Developer</p>
+            <p className='p-text'>*Backend Developer</p>
           </div>
         </div>
       </motion.div>
@@ -55,7 +56,7 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className='app__header-img'
       >
-        <img src={images.profile} alt="profile_bg" />
+        {/* <img src={images.profile} alt="profile_bg" /> */}
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}

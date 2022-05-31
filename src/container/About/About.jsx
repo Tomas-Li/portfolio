@@ -18,13 +18,18 @@ const About = () => {
     const query = '*[_type == "abouts"]';
 
     client.fetch(query)
-      .then(data => {setAbouts(data)})
+      .then(data => {
+        const sortData = data.sort(function(a, b) {
+          return a['order'] - b['order'];
+        })
+        setAbouts(sortData);
+      })
   }, []);
 
   return (
     <>
       <h2 className='head-text'>
-        I Know That <span>Good Apps</span> <br /> means <span>Good Business</span>
+        <span>Developing</span> has been <br /> my <span>passion</span> for years
       </h2>
 
       <div className='app__profiles'>

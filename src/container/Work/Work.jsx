@@ -11,7 +11,7 @@ import { urlFor, client } from '../../libs/client';
 import './Work.scss'
 
 //Categories
-const categories = ['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All']
+const categories = ['Web App', 'Mobile App', 'React JS', 'Next.js', 'Python', 'All']
 
 const Work = () => {
   //State
@@ -25,8 +25,11 @@ const Work = () => {
 
     client.fetch(query)
       .then(data => {
-        setWorks(data);
-        setFilterWork(data);
+        const sortData = data.sort(function(a, b) {
+          return a['order'] - b['order'];
+        })
+        setWorks(sortData);
+        setFilterWork(sortData);
       })
   }, [])
   
@@ -80,7 +83,11 @@ const Work = () => {
                 className='app__work-hover app__flex'
               >
                 {/* The next link is for the eye icon */}
-                <a href={work.projectLink} target='_blank' rel='noopener noreferrer'>
+                <a 
+                  href={work.projectLink} 
+                  target={work.projectLink === '#' ? '_self' : '_blank'} 
+                  rel='noopener noreferrer'
+                >
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -92,7 +99,11 @@ const Work = () => {
                 </a>
 
                 {/* The next link is for the  */}
-                <a href={work.codeLink} target='_blank' rel='noopener noreferrer'>
+                <a 
+                  href={work.codeLink} 
+                  target={work.codeLink === '#' ? '_self' : '_blank'} 
+                  rel='noopener noreferrer'
+                >
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}

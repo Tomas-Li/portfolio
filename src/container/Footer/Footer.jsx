@@ -1,5 +1,5 @@
 //External Imports
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 //Internal Imports
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -47,11 +47,11 @@ const Footer = () => {
       <div className='app__footer-cards'>
         <div className='app__footer-card'>
           <img src={images.email} alt="email" />
-          <a href='mailto:tomas.m.l.001@gamil.com' className='p-text'>tomas.m.l.001@gmail.com</a>
+          <a href='mailto:tomili.job@gmail.com' className='p-text'>tomili.job@gmail.com</a>
         </div>
         <div className='app__footer-card'>
-          <img src={images.mobile} alt="mobile" />
-          <a href='tel: +1 (123) 456-789' className='p-text'>+1 (123) 456-789</a>
+          <img src={images.cv} alt="mobile" />
+          <a href='/CV-TomásLiñan-En-Sp.pdf' download className='p-text' target="_blank">Curriculum Vitae</a>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ const Footer = () => {
             <textarea 
               className='p-text' 
               name='message'
-              placeholder='Your Message'
+              placeholder='Your Message (I would recommend to contact me through the email above. I check that one much more often that the one used on this form)'
               value={message}
               onChange={handleChangeInput}
             />
