@@ -45,15 +45,26 @@
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background-color: #fef4f5;
+    background-color: #ccc4c4;
 
-    img {
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+
+    a{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top:25%;
+    }
+
+    a img {
       width: 50%;
       height: 50%;
     }
 
     &:hover {
-      box-shadow: 0 0 25px #fef4f5;
+      box-shadow: 0 0 25px #d3c834;
     }
 
     @media screen and (min-width: 2000px) {
