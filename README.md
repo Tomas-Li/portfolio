@@ -1,7 +1,9 @@
-## Portfolio project
+## Portfolio project in React
 
-Built with React
+### url to the portfolio: https://portfolio-tomasli.netlify.app/
 
-DB hosted in Sanity
+Updated version of a portfolio built with React with the objective of showing my 
+understanding about components, code organization, database management, between
+another topics.
 
-### Please check it out: https://portfolio-tomasli.netlify.app/
+Project done by 2022, last update 2026
