@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
+import { FiInfo } from 'react-icons/fi';
 
 //Internal Imports
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -74,15 +75,28 @@ const Skills = () => {
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
                       className='app__skills-exp-work'
-                      data-tooltip-id={work.name}
                     >
-                      <h4 className='bold-text'>{work.name}</h4>
+                      <div className='app__skills-exp-work-title'>
+                        <h4 className='bold-text'>{work.name}</h4>
+                        <button
+                          type='button'
+                          className='app__skills-exp-info'
+                          aria-label={`Más información sobre ${work.name}`}
+                          data-tooltip-id={work.name}
+                        >
+                          <FiInfo aria-hidden='true' />
+                        </button>
+                      </div>
                       <p className='p-text'>{work.company}</p>
                     </motion.div>
                     <ReactTooltip
                       id={work.name}
                       arrowColor='#fff'
                       className='skills-tooltip'
+                      openEvents={{ mouseover: true, focus: true }}
+                      closeEvents={{ mouseout: true, blur: true }}
+                      clickable
+                      globalCloseEvents={{ escape: true }}
                     >
                       {work.desc}
                     </ReactTooltip>
