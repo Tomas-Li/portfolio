@@ -138,6 +138,7 @@
 }
 
 .app__skills-exp-year {
+  flex: 0 0 120px;
   margin-right: 3rem;
 
   p {
@@ -152,6 +153,7 @@
 
 //All the following lines have to be !important to override the dependency's normal style
 .skills-tooltip {
+  --rt-opacity: 1;
   max-width: 300px !important;
   background-color: var(--white-color) !important;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1) !important;
@@ -160,7 +162,7 @@
   color: var(--gray-color) !important;
   text-align: center !important;
   line-height: 1.5 !important;
-  opacity: 1 !important;
+  transition: opacity 350ms ease-in-out !important;
 
   @media screen and (min-width: 2000px) {
     font-size: 1.75rem !important;

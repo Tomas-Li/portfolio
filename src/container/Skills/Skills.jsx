@@ -20,6 +20,7 @@ const Skills = () => {
 
     client.fetch(experiencesQuery)
       .then(data => {
+        data.sort((a,b) => Number(b.year.split('-')[0]) - Number(a.year.split('-')[0]))
         setExperiences(data);
       });
 
@@ -36,6 +37,7 @@ const Skills = () => {
     <>
       <h2 className='head-text'>Skills & Experience</h2>
 
+      {/* Skills */}
       <div className='app__skills-container'>
         <motion.div className='app__skills-list'>
           {skills?.map((skill) => (
@@ -65,7 +67,7 @@ const Skills = () => {
               <div className='app__skills-exp-year'>
                 <p className='bold-text'>{experience.year}</p>
               </div>
-              <motion.div className='app__skils-exp-works'>
+              <motion.div className='app__skills-exp-works'>
                 {experience.works.map(work => (
                   <React.Fragment key={work.name}>
                     <motion.div
