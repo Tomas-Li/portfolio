@@ -2,6 +2,7 @@ import email from '../assets/red-mail.webp';
 import cv from '../assets/poem-poetry.webp';
 import api from '../assets/api.png';
 import cpp from '../assets/cpp.png';
+import php from '../assets/php-logo.png';
 import css from '../assets/css.png';
 import git from '../assets/git.png';
 import html from '../assets/html.png';
@@ -9,6 +10,7 @@ import javascript from '../assets/javascript.png';
 import mu5 from '../assets/mu5.png';
 import node from '../assets/node.png';
 import python from '../assets/python.png';
+import java from '../assets/java-logo.svg';
 import react from '../assets/react.png';
 import redux from '../assets/redux.png';
 import sass from '../assets/sass.png';
@@ -21,6 +23,7 @@ const images = {
   cv,
   api,
   cpp,
+  php,
   css,
   git,
   html,
@@ -28,6 +31,7 @@ const images = {
   mu5,
   node,
   python,
+  java,
   react,
   redux,
   sass,

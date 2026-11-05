@@ -1,0 +1,443 @@
+@use "sass:color";
+
+$starting-color: #fff;
+$body-color: #dbdbdb;
+$tail-color: #858585;
+$window-front-color: #17d4e5;
+$window-side-color: aquamarine;
+$flame-outer-color: rgb(255, 85, 43);
+$flame-inner-color: rgb(255, 192, 2);
+
+.container-avion {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  container-type: size;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.container-avion.is-active {
+  visibility: visible;
+}
+
+.avion-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: min(100cqw, 90cqh);
+  height: min(100cqw, 90cqh);
+  color: $starting-color;
+  transform: translate(-50%, -50%);
+}
+
+.container-avion:not(.is-active) * {
+  animation-play-state: paused !important;
+}
+
+#defs1907 stop {
+  animation: finish-fill-gradient 2s ease 5s forwards;
+}
+
+#gradient-body stop:first-child {
+  --gradient-target: #{$body-color};
+}
+
+#gradient-body stop:last-child {
+  --gradient-target: #{color.adjust($body-color, $lightness: -50%)};
+}
+
+#gradient-tail stop:first-child {
+  --gradient-target: #{$tail-color};
+}
+
+#gradient-tail stop:last-child {
+  --gradient-target: #{color.adjust($tail-color, $lightness: -30%)};
+}
+
+#gradient-flame-outer stop:first-child {
+  --gradient-target: #{$flame-outer-color};
+}
+
+#gradient-flame-outer stop:last-child {
+  --gradient-target: #{color.adjust($flame-outer-color, $lightness: -50%)};
+}
+
+#gradient-flame-inner stop:first-child {
+  --gradient-target: #{$flame-inner-color};
+}
+
+#gradient-flame-inner stop:last-child {
+  --gradient-target: #{color.adjust($flame-inner-color, $lightness: -50%)};
+}
+
+#gradient-window-side stop:first-child {
+  --gradient-target: #{$window-side-color};
+}
+
+#gradient-window-side stop:last-child {
+  --gradient-target: #{color.adjust($window-side-color, $lightness: -50%)};
+}
+
+#gradient-window-front stop:first-child {
+  --gradient-target: #{$window-front-color};
+}
+
+#gradient-window-front stop:last-child {
+  --gradient-target: #{color.adjust($window-front-color, $lightness: -20%)};
+}
+
+@keyframes finish-fill-gradient {
+  to {
+    stop-color: var(--gradient-target);
+  }
+}
+
+#fuselaje {
+    fill-opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation-name: draw-fuselaje, change-fill-fuselaje;
+    animation-duration: 5s, 2s;
+    animation-delay: 0s, 5s;
+    animation-timing-function: ease, ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes draw-fuselaje {
+    0% {
+        fill-opacity: 0;
+        stroke-dashoffset: 1;
+    }
+
+    75% {
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        fill-opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes change-fill-fuselaje {
+    to {
+        color: $body-color;
+    }
+}
+
+
+#ala-derecha {
+    fill-opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation-name: draw-ala-derecha, change-fill-ala-derecha;
+    animation-duration: 5s, 2s;
+    animation-delay: 0s, 5s;
+    animation-timing-function: ease, ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes draw-ala-derecha {
+    0% {
+        fill-opacity: 0;
+        stroke-dashoffset: 1;
+    }
+
+    75% {
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        fill-opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes change-fill-ala-derecha {
+    to {
+        color: $body-color
+    }
+}
+
+
+#ala-izquierda {
+    fill-opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation-name: draw-ala-izquierda, change-fill-ala-izquierda;
+    animation-duration: 5s, 2s;
+    animation-delay: 0s, 5s;
+    animation-timing-function: ease, ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes draw-ala-izquierda {
+    0% {
+        fill-opacity: 0;
+        stroke-dashoffset: 1;
+    }
+
+    75% {
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        fill-opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes change-fill-ala-izquierda {
+    to {
+        color: $body-color;
+    }
+}
+
+#cola {
+    fill-opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation-name: draw-cola, change-fill-cola;
+    animation-duration: 5s, 2s;
+    animation-delay: 0s, 5s;
+    animation-timing-function: ease, ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes draw-cola {
+    0% {
+        fill-opacity: 0;
+        stroke-dashoffset: 1;
+    }
+
+    75% {
+        fill-opacity: 0;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        fill-opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes change-fill-cola {
+    to {
+        color: $tail-color;
+    }
+}
+
+#ventanas-laterales ellipse {
+  fill-opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: draw-ventana-lateral, fill-ventanas-laterales, change-fill-ventanas-laterales;
+  animation-duration: 1.5s, 0.35s, 2s;
+  animation-delay: 0s, 3.9s, 5s;
+  animation-timing-function: ease, ease, ease;
+  animation-fill-mode: forwards;
+
+  &:nth-child(2) {
+    animation-delay: 1.2s, 3.9s, 5s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 2.4s, 3.9s, 5s;
+  }
+}
+
+@keyframes draw-ventana-lateral {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fill-ventanas-laterales {
+  to {
+    fill-opacity: 1;
+  }
+}
+@keyframes change-fill-ventanas-laterales {
+  to {
+    color: $window-side-color;
+  }
+}
+
+#ventanas-frontales path {
+  fill-opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: draw-ventanas-frontales, change-fill-ventanas-frontales;
+  animation-duration: 5s, 2s;
+  animation-delay: 0s, 5s; 
+  animation-timing-function: ease, ease;
+  animation-fill-mode:  forwards;
+}
+
+@keyframes draw-ventanas-frontales {
+  0% {
+    fill-opacity: 0;
+    stroke-dashoffset: 1;
+  }
+
+  75% {
+    fill-opacity: 0;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    fill-opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes change-fill-ventanas-frontales {
+    to {
+        color: $window-front-color;
+    }
+}
+
+#motor-derecho path {
+  fill-opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: draw-motor-derecho, fill-motor-derecho;
+  animation-duration: 1.5s, 0.8s;
+  animation-delay: 0s, 3.8s;
+  animation-timing-function: ease, ease;
+  animation-fill-mode: forwards;
+
+  &:nth-child(2) {
+    animation-delay: 1.2s, 3.8s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 2.4s, 3.8s;
+  }
+}
+
+#motor-derecho #motor-derecho-path {
+  animation-name: draw-motor-derecho, fill-motor-derecho, change-color-motor-derecho;
+  animation-duration: 1.5s, 0.8s, 2s;
+  animation-delay: 0s, 3.8s, 5s;
+  animation-timing-function: ease, ease, ease;
+  animation-fill-mode: forwards;
+}
+
+#motor-derecho #fuego-derecho {
+  animation-name: draw-motor-derecho, fill-motor-derecho, change-color-fuego-derecho;
+  animation-duration: 1.5s, 0.8s, 2s;
+  animation-delay: 1.2s, 3.8s, 5s;
+  animation-timing-function: ease, ease, ease;
+  animation-fill-mode: forwards;
+}
+
+#motor-derecho #fuego-derecho-int {
+  animation-name: draw-motor-derecho, fill-motor-derecho, change-color-fuego-derecho-int;
+  animation-duration: 1.5s, 0.8s, 2s;
+  animation-delay: 2.4s, 3.8s, 5s;
+  animation-timing-function: ease, ease, ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-motor-derecho {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill-motor-derecho {
+    to {
+        fill-opacity: 1;
+    }
+}
+
+@keyframes change-color-motor-derecho {
+    to {
+        color: $body-color;
+    }
+}
+
+@keyframes change-color-fuego-derecho {
+    to {
+        color: $flame-outer-color;
+    }
+}
+
+@keyframes change-color-fuego-derecho-int {
+    to {
+        color: $flame-inner-color;
+    }
+}
+
+#motor-izquierdo path {
+  fill-opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: draw-motor-izquierdo, fill-motor-izquierdo;
+  animation-duration: 1.5s, 0.8s;
+  animation-delay: 0s, 3.8s;
+  animation-timing-function: ease, ease;
+  animation-fill-mode: forwards;
+
+  &:nth-child(2) {
+    animation-delay: 1.2s, 3.8s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 2.4s, 3.8s;
+  }
+}
+
+#motor-izquierdo #motor-izquierdo-path {
+  animation-name: draw-motor-izquierdo, fill-motor-izquierdo, change-color-motor-izquierdo;
+  animation-duration: 1.5s, 0.8s, 2s;
+  animation-delay: 0s, 3.8s, 5s;
+  animation-timing-function: ease, ease, ease;
+  animation-fill-mode: forwards;
+}
+
+#motor-izquierdo #fuego-izquierdo {
+  animation-name: draw-motor-izquierdo, fill-motor-izquierdo, change-color-fuego-izquierdo;
+  animation-duration: 1.5s, 0.8s, 2s;
+  animation-delay: 1.2s, 3.8s, 5s;
+  animation-timing-function: ease, ease, ease;
+  animation-fill-mode: forwards;
+}
+
+#motor-izquierdo #fuego-izquierdo-int {
+  animation-name: draw-motor-izquierdo, fill-motor-izquierdo, change-color-fuego-izquierdo-int;
+  animation-duration: 1.5s, 0.8s, 2s;
+  animation-delay: 2.4s, 3.8s, 5s;
+  animation-timing-function: ease, ease, ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-motor-izquierdo {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill-motor-izquierdo {
+    to {
+        fill-opacity: 1;
+    }
+}
+
+@keyframes change-color-motor-izquierdo {
+    to {
+        color: $body-color;
+    }
+}
+
+@keyframes change-color-fuego-izquierdo {
+    to {
+        color: $flame-outer-color;
+    }
+}
+
+@keyframes change-color-fuego-izquierdo-int {
+    to {
+        color: $flame-inner-color;
+    }
+}

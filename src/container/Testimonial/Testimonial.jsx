@@ -78,7 +78,9 @@ const Testimonial = () => {
             transition={{ dutarion: 0.5, type: 'tween' }}
             key={brand._id}
           >
-            <img src={urlFor(brand.imgUrl)} alt={brand.name}/>
+            <a href="https://www.iua.edu.ar/" target='_blank' rel='noopener noreferrer'>
+              <img src={urlFor(brand.imgUrl)} alt={brand.name}/>
+            </a>
           </motion.div>
         ))}
       </div>

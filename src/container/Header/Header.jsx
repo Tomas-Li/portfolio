@@ -1,8 +1,10 @@
 //External Imports
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 //Internal Imports
 import { AppWrap } from '../../wrapper';
+import AvionSVG from './AvionSVG';
 
 //Assets
 import { images } from '../../constants';
@@ -22,10 +24,19 @@ const scaleVariants = {
   }
 }
 
-//images that are being shown in the header
-const technologies = [images.python, images.node, images.cpp]
+// Technologies displayed around the central sphere.
+const technologies = [
+  { image: images.python, name: 'Python' },
+  { image: images.node, name: 'Node.js' },
+  { image: images.cpp, name: 'C++' },
+  { image: images.php, name: 'PHP', isSecondary: true },
+  { image: images.java, name: 'Java', isSecondary: true }
+]
  
 const Header = () => {
+  const [isSphereVisible, setIsSphereVisible] = useState(false);
+  const [waveKey, setWaveKey] = useState(0);
+
   return (
     <div className='app__header app__flex'>
       <motion.div
@@ -34,8 +45,18 @@ const Header = () => {
         className='app__header-info'
       >
         <div className='app__header-badge'>
-          <div className='badge-cmp app__flex'>
-            <span>👋</span>
+          <div
+            className='badge-cmp app__flex'
+            onMouseEnter={() => setWaveKey((key) => key + 1)}
+          >
+            <span
+              className={`app__header-wave${waveKey ? ' is-hover-triggered' : ''}`}
+              key={waveKey}
+              role='img'
+              aria-label='Saludo'
+            >
+              👋
+            </span>
             <div style={{ marginLeft: 20 }}>
               <p className='p-text'>Hello, I am </p>
               <h1 className='head-text'>Tomás Liñan</h1>
@@ -53,17 +74,17 @@ const Header = () => {
       {/* Person Img + background transition*/}
       <motion.div
         whileInView={{ opacity: [0, 1] }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className='app__header-img'
       >
-        {/* <img src={images.profile} alt="profile_bg" /> */}
-        <motion.img
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
+        <img
+          onAnimationEnd={() => setIsSphereVisible(true)}
           src={images.circle}
           alt="profile_circle"
           className='overlay-circle'
         />
+        <AvionSVG isActive={isSphereVisible} />
       </motion.div>
       
 
@@ -72,9 +93,12 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className='app__header-circles'
       >
-        {technologies.map((circle, index) => (
-          <div className='circle-cmp app__flex' key={`circle-${index}`}>
-            <img src={circle} alt='circle' />
+        {technologies.map(({ image, name, isSecondary }) => (
+          <div
+            className={`circle-cmp app__flex${isSecondary ? ' circle-cmp--secondary' : ''}`}
+            key={name}
+          >
+            <img src={image} alt={name} />
           </div>
         ))}
       </motion.div>
