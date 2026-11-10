@@ -11,13 +11,13 @@ import './Footer.scss'
 const Footer = () => {
   return (
     <>
-      <h2 className='head-text'>Feel Free To Send Me A Message or Check My Media</h2>
+      <h2 className='head-text'>Feel Free To Send Me A Message And Check My Media</h2>
       <div className='app__footer-cards app__footer-cards--social'>
         <a href='mailto:tomili.job@gmail.com' className='app__footer-card app__footer-card--email'>
           <img src={images.email} alt="" />
           <span className='p-text'>tomili.job@gmail.com</span>
         </a>
-        <a href='/Resume-Tomas_Linan-Japon2026-1.0.0.pdf' download className='app__footer-card app__footer-card--cv'>
+        <a href='/Resume Tomas Linan - Japan 2026 - V1.0.2.pdf' download className='app__footer-card app__footer-card--cv'>
           <img src={images.cv} alt="" />
           <span className='p-text'>Curriculum Vitae</span>
         </a>
@@ -35,4 +35,4 @@ const Footer = () => {
   )
 }
 
-export default AppWrap( MotionWrap(Footer, 'app__footer'), 'contact', 'app__whitebg');
+export default AppWrap( MotionWrap(Footer, 'app__footer'), 'contact', 'app__primarybg');

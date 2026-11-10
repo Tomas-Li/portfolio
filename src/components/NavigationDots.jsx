@@ -1,4 +1,5 @@
-const menuList = ['home', 'about', 'work', 'skills', 'testimonials', 'contact'];
+// const menuList = ['home', 'about', 'work', 'skills', 'testimonials', 'contact'];
+const menuList = ['home', 'about', 'work', 'skills', 'contact'];
 
 const NavigationDots = ({ active }) => {
   return (

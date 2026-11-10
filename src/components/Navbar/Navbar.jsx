@@ -12,7 +12,8 @@ import './Navbar.scss'
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
-  const menuList = ['home', 'about', 'work', 'skills', 'testimonials', 'contact'];
+  // const menuList = ['home', 'about', 'work', 'skills', 'testimonials', 'contact'];
+  const menuList = ['home', 'about', 'work', 'skills', 'contact'];
 
   return (
     <nav className='app__navbar'>
